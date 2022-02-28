@@ -1,7 +1,7 @@
 drop database if exists farmmeeting;
 create database farmmeeting character set utf8 collate utf8_general_ci;
 use farmmeeting ;
------------------------------------------------------------------------------------------------------------------------
+
 create table farmers(
 	id int not null primary key auto_increment,
 	opg varchar(50)	not null,
@@ -27,11 +27,11 @@ create table farmers_meeting(
 	meeting int not null,
 	farmers int not null
 );
------------------------------------------------------------------------------------------------------------------------
+
 alter table farmers_meeting add foreign key (farmers) references farmers(id);
 alter table farmers_meeting add foreign key (meeting) references meeting(id);
 alter table meeting add foreign key (farmType) references farmType(id);
------------------------------------------------------------------------------------------------------------------------
+
 insert into farmers (id, opg, email, contactphone) values
 (null, 'Admin', 'admin@email.com', 0911111111),
 (null, 'OPG1', 'opg1@email.com', 0911111112),
@@ -44,3 +44,5 @@ insert into farmers (id, opg, email, contactphone) values
 (null, 'OPG8', 'opg8@email.com', 0912211110),
 (null, 'OPG9', 'opg9@email.com', 0913311121),
 (null, 'OPG10','opg10@email.com',09184411122);
+
+
