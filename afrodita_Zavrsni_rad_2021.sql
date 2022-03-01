@@ -1,5 +1,5 @@
-drop database if exists afrodita_Zavrsni_rad_2021;
-create database afrodita_Zavrsni_rad_2021 character set utf8 collate utf8_general_ci;
+drop database if exists farmmeeting;
+create database farmmeeting character set utf8 collate utf8_general_ci;
 use farmmeeting ;
 
 create table farmers(
