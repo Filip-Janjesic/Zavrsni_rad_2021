@@ -44,10 +44,31 @@
         <div class=" col-lg-4 col-sm-12">
             <h4 style="padding-left: 2cm; padding-bottom: 1cm">Create new farm type</h4>
             <form action="" method="post" name="update">
-                <input class="form-control" style="text-align: center;margin-bottom: 1cm" type="datetime-local" name="matchStart" placeholder="Odaberi datum">
-                <input class="form-control" style="text-align: center;margin-bottom: 1cm" type="text" name="matchLocation" placeholder="Upiši lokaciju">
-                <input class="form-control" style="text-align: center;margin-bottom: 1cm" type="text" name="matchPrice" placeholder="Upiši cijenu">
-                <button class="btn btn-success btn-block" type="submit"><i class="fas fa-sign-in-alt"></i>Spremi promjene</button>
+                <input class="form-control" style="text-align: center;margin-bottom: 1cm" type="datetime-local" name="meetingStart" placeholder="Select a date">
+                <input class="form-control" style="text-align: center;margin-bottom: 1cm" type="text" name="meetingLocation" placeholder="Enter the location">
+                <input class="form-control" style="text-align: center;margin-bottom: 1cm" type="text" name="reason" placeholder="Enter the reason">
+                <button class="btn btn-success btn-block" type="submit"><i class="fas fa-sign-in-alt"></i>Save changes</button>
             </form>
         </div>
     </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Ordinal number</th>
+                <th scope="col">Start date</th>
+                <th scope="col">Location</th>
+                <th scope="col">Reason</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php for ($i=0; $i<$number[0][0]; $i++):?>
+            <tr>
+                <th scope="row"><?=$list[$i][0]?></th>
+                <td><?=$list[$i][2]?></td>
+                <td><?=$list[$i][3]?></td>
+                <td><?=$list[$i][4]?></td>
+            </tr>
+            <?php endfor;?>
+        </tbody>
+    </table>
