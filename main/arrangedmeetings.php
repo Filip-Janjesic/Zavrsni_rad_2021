@@ -19,7 +19,7 @@
     $mostorganized=$term->fetchAll();
 
     $term = $db->prepare("SELECT nname FROM farmType WHERE id=:id");
-    $term->bindValue('id',$mostplayed[0][0]);
+    $term->bindValue('id',$mostorganized[0][0]);
     $term->execute();
     $nname=$term->fetchAll();
 ?>
@@ -37,5 +37,5 @@
 </div>
 <div class="container">
     <h4>So far you are organized <?=$count[0][0]?> meetings.</h4>
-    <h4>Your most organized meeting is <?=$nname[0][0]?></h4>
+    <h4>Your most frequently organized meeting is <?=$nname[0][0]?></h4>
 </div>
