@@ -21,10 +21,10 @@
                 <div class="list-group list-group-flush">
                     <a href="mainmenu.php?x=1" class="list-group-item list-group-item-action bg-light">Homepage</a>
                     <a href="mainmenu.php?x=2" class="list-group-item list-group-item-action bg-light">Arranged meetings</a>
-                    <a href="mainmenu.php?x=4" class="list-group-item list-group-item-action bg-light">Arranged a new meeting</a>
-                    <a href="mainmenu.php?x=5" class="list-group-item list-group-item-action bg-light">Settings</a>
-                    <a href="mainmenu.php?x=6" class="list-group-item list-group-item-action bg-light">About us</a>
-                    <a href="mainmenu.php?x=7" class="list-group-item list-group-item-action bg-light">Contact us</a>
+                    <a href="mainmenu.php?x=3" class="list-group-item list-group-item-action bg-light">Arranged a new meeting</a>
+                    <a href="mainmenu.php?x=4" class="list-group-item list-group-item-action bg-light">Settings</a>
+                    <a href="mainmenu.php?x=5" class="list-group-item list-group-item-action bg-light">About us</a>
+                    <a href="mainmenu.php?x=6" class="list-group-item list-group-item-action bg-light">Contact us</a>
                 </div>
             </div>
             
@@ -41,8 +41,8 @@
                                     <?=$end[0][1]." ".$end[0][2]?>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="mainmenu.php?x=8">My profile</a>
-                                    <a class="dropdown-item" href="mainmenu.php?x=5">Settings</a>
+                                    <a class="dropdown-item" href="mainmenu.php?x=7">My profile</a>
+                                    <a class="dropdown-item" href="mainmenu.php?x=4">Settings</a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="index.php">Logout</a>
                                 </div>
@@ -54,7 +54,7 @@
                 <?php
                         if (!isset($_GET['x']) || $_GET['x'] == 1) { include("main/homepage.php"); }
                         else if ($_GET['x'] == 2) { include("main/arrangedmeetings.php"); }
-                        else if ($_GET['x'] == 4) { include("main/newfarmtype.php"); }
+                        else if ($_GET['x'] == 3) { include("main/arrangednewmeeting.php"); }
                         else if ($_GET['x'] == 5) { include("main/settings.php"); }
                         else if ($_GET['x'] == 6) { include("main/aboutus.php"); }
                         else if ($_GET['x'] == 7) { include("main/contact.php"); }
