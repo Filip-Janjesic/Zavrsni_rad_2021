@@ -6,7 +6,7 @@
     $term = $db->prepare("SELECT COUNT(*) FROM farmers WHERE email=:email");
     $term->bindValue('email', Request::post("email"));
     $term->execute();
-    $results=$term->fetchAll();
+    $end=$term->fetchAll();
 ?>
 
 <!doctype html>
@@ -30,7 +30,7 @@
             
             <div id="page-content-wrapper">
                 <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-                    <button class="btn btn-primary" id="menu-toggle" style="background: #358CCE">Izbornik</button>
+                    <button class="btn btn-primary" id="menu-toggle" style="background: #358CCE">Menu</button>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -38,7 +38,7 @@
                         <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <?=$results[0][1]." ".$results[0][2]?>
+                                    <?=$end[0][1]." ".$end[0][2]?>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="mainmenu.php?x=8">My profile</a>
