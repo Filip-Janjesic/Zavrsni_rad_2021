@@ -59,7 +59,13 @@
                 <th scope="col">Start date</th>
                 <th scope="col">Location</th>
                 <th scope="col">Reason</th>
-                <th scope="col">Delete</th>
+                <th scope="col">Delete
+                <a 
+                        onclick="return confirm('Sigurno obrisati polaznika &#34;<?=$polaznik->ime?> <?=$polaznik->prezime?>&#34;?');"
+                        href="<?=App::config('url')?>polaznik/brisanje/<?=$polaznik->sifra?>">
+                            <i title="Brisanje" style="color: red; margin-left: 20px;" class="fas fa-2x fa-trash-alt"></i>
+                </a>
+                </th>
             </tr>
         </thead>
         <tbody>
