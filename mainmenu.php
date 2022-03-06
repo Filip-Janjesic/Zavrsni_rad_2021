@@ -21,7 +21,7 @@
                 <div class="list-group list-group-flush">
                     <a href="mainmenu.php?x=1" class="list-group-item list-group-item-action bg-light">Homepage</a>
                     <a href="mainmenu.php?x=2" class="list-group-item list-group-item-action bg-light">Arranged meetings</a>
-                    <a href="mainmenu.php?x=4" class="list-group-item list-group-item-action bg-light">Create new farm type</a>
+                    <a href="mainmenu.php?x=4" class="list-group-item list-group-item-action bg-light">Arranged a new meeting</a>
                     <a href="mainmenu.php?x=5" class="list-group-item list-group-item-action bg-light">Settings</a>
                     <a href="mainmenu.php?x=6" class="list-group-item list-group-item-action bg-light">About us</a>
                     <a href="mainmenu.php?x=7" class="list-group-item list-group-item-action bg-light">Contact us</a>
