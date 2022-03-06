@@ -11,7 +11,7 @@ create table farmers(
 
 create table farmType(
 	id int not null primary key auto_increment,
-	name varchar(50) not null,
+	nname varchar(50) not null,
 	numOfWorkers int not null
 );
 
