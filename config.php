@@ -1,7 +1,7 @@
 <?php
 
     error_reporting(0);
-    $user = "afrodita"; // Mysql user
+    $user = "afrodita_Filip-J"; // Mysql user
     $pass = "t84durft1994"; // Mysql pass
     $db = new PDO("mysql:dbname=afrodita_Zavrsni_rad_2021;host=localhost;charset=utf8", $user, 't84durft1994');
 
