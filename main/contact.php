@@ -75,11 +75,11 @@
                 <address>
                     <strong>Farm Meeting</strong><br>
                     St. King address, 999 <br>
-                    Taumatawhakatangihangakoauauotamateaturipukakapikimaungahoronukupokaiwhenuakitanatahu, 31000<br>
-                    <abbr title="Telefon">
-                        P:
+                    Osijek, 31000<br>
+                    <abbr title="Phone">
+                        Phone:
                     </abbr>
-                    (099) 999-9999
+                     (099) 999-9999
                 </address>
                 <address>
                     <a href="mailto:#">contact@farmmeeting.com</a>
