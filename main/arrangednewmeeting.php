@@ -44,10 +44,10 @@
         <div class=" col-lg-4 col-sm-12">
             <h4 style="padding-left: 2cm; padding-bottom: 1cm">Create new farm type</h4>
             <form action="" method="post" name="update">
-                <input class="form-control" style="text-align: center;margin-bottom: 1cm" type="datetime-local" name="meetingStart" placeholder="Select a date">
-                <input class="form-control" style="text-align: center;margin-bottom: 1cm" type="text" name="meetingLocation" placeholder="Enter the location">
-                <input class="form-control" style="text-align: center;margin-bottom: 1cm" type="text" name="reason" placeholder="Enter the reason">
-                <button class="btn btn-success btn-block" type="submit"><i class="fas fa-sign-in-alt"></i>Save changes</button>
+                <input class="form-control mb-2" style="text-align: center;margin-bottom: 1cm" type="datetime-local" name="meetingStart" placeholder="Select a date">
+                <input class="form-control mb-2" style="text-align: center;margin-bottom: 1cm" type="text" name="meetingLocation" placeholder="Enter the location">
+                <input class="form-control mb-2" style="text-align: center;margin-bottom: 1cm" type="text" name="reason" placeholder="Enter the reason">
+                <button class="btn btn-success btn-block mb-2" type="submit"><i class="fas fa-sign-in-alt"></i>Save changes</button>
             </form>
         </div>
     </div>
