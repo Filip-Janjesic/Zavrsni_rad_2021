@@ -52,14 +52,14 @@
         </div>
     </div>
 
-    <table class="table">
+    <table class="table table-bordered">
         <thead>
             <tr>
                 <th scope="col">Ordinal number</th>
                 <th scope="col">Start date</th>
                 <th scope="col">Location</th>
                 <th scope="col">Reason</th>
-                <th scope="col">Edit</th>
+                <th scope="col">Update</th>
                 <th scope="col">Delete</th>
             </tr>
         </thead>
@@ -70,6 +70,9 @@
                 <td><?=$list[$i][2]?></td>
                 <td><?=$list[$i][3]?></td>
                 <td><?=$list[$i][4]?></td>
+                <td><?=$list[$i][5]?><button type="submit" name="update" class="btn btn-primary">Update</button></td>
+                <td><?=$list[$i][6]?><button type="submit" name="delete" class="btn btn-danger">Delete</button></td> 
+
             </tr>
             <?php endfor;?>
         </tbody>
