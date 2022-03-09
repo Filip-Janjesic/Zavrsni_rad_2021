@@ -47,7 +47,7 @@
                 <input class="form-control mb-2" style="text-align: center;margin-bottom: 1cm" type="datetime-local" name="meetingStart" placeholder="Select a date">
                 <input class="form-control mb-2" style="text-align: center;margin-bottom: 1cm" type="text" name="meetingLocation" placeholder="Enter the location">
                 <input class="form-control mb-2" style="text-align: center;margin-bottom: 1cm" type="text" name="reason" placeholder="Enter the reason">
-                <button class="btn btn-success btn-block mb-2" type="submit"><i class="fas fa-sign-in-alt"></i>Save changes</button>
+                <button class="btn btn-success btn-block mb-5" type="submit"><i class="fas fa-sign-in-alt"></i>Save changes</button>
             </form>
         </div>
     </div>
@@ -55,7 +55,7 @@
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th scope="col">Ordinal number</th>
+                <th scope="col">Order</th>
                 <th scope="col">Start date</th>
                 <th scope="col">Location</th>
                 <th scope="col">Reason</th>
@@ -70,8 +70,8 @@
                 <td><?=$list[$i][2]?></td>
                 <td><?=$list[$i][3]?></td>
                 <td><?=$list[$i][4]?></td>
-                <td><?=$list[$i][5]?><button type="submit" name="update" class="btn btn-primary">Update</button></td>
-                <td><?=$list[$i][6]?><button type="submit" name="delete" class="btn btn-danger">Delete</button></td> 
+                <td><?=$list[$i][5]?><a href="update.php?id=<?php echo $list["id"]; ?><button type="submit" name="update" class="btn btn-primary">Update</button></td>
+                <td><?=$list[$i][6]?><a href="delete.php?id=<?php echo $list["id"]; ?><button type="submit" name="delete" class="btn btn-danger">Delete</button></td> 
 
             </tr>
             <?php endfor;?>
