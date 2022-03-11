@@ -70,9 +70,12 @@
                 <td><?=$list[$i][2]?></td>
                 <td><?=$list[$i][3]?></td>
                 <td><?=$list[$i][4]?></td>
-                <td><?=$list[$i][5]?><a href="update.php?id=<?php echo $list["id"]; ?><button type="submit" name="update" class="btn btn-primary">Update</button></td>
-                <td><?=$list[$i][6]?><a href="delete.php?id=<?php echo $list["id"]; ?><button type="submit" name="delete" class="btn btn-danger">Delete</button></td> 
-
+                <td><?=$list[$i][5]?>
+                    <button class ="btn btn-primary"><a href="update.php" class="text-light">Update</a></button>
+                </td>
+                <td><?=$list[$i][6]?>
+                    <button class ="btn btn-danger"><a href="delete.php" class="text-light">Delete</a></button>
+                </td> 
             </tr>
             <?php endfor;?>
         </tbody>
