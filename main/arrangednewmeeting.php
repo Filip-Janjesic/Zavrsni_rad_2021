@@ -71,10 +71,10 @@
                 <td><?=$list[$i][3]?></td>
                 <td><?=$list[$i][4]?></td>
                 <td><?=$list[$i][5]?>
-                    <button class ="btn btn-primary"><a href="update.php" class="text-light">Update</a></button>
+                    <button class ="btn btn-primary"><a href="update.php?id=<?php echo $row["id"]; ?> " alt="edit" class="text-light" >Update</a></button>
                 </td>
                 <td><?=$list[$i][6]?>
-                    <button class ="btn btn-danger"><a href="delete.php" class="text-light">Delete</a></button>
+                    <button class ="btn btn-danger"><a href="delete.php?id" class="text-light">Delete</a></button>
                 </td> 
             </tr>
             <?php endfor;?>
