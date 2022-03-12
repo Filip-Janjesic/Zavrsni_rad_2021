@@ -1,7 +1,9 @@
 <?php
 
-    include_once "head.php";
-    include_once "config.php";
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 
     $term = $db->prepare("SELECT * FROM meeting WHERE id=:id");
     $term->bindValue('id', $_SESSION["id"]);
