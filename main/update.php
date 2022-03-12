@@ -1,24 +1,32 @@
 <?php
-
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+    include_once "head.php";
+    include_once "config.php";
 
-    $term = $db->prepare("SELECT * FROM meeting WHERE id=:id");
-    $term->bindValue('id', $_SESSION["id"]);
+    $term = $db->prepare("SELECT * FROM farmType");
     $term->execute();
     $end=$term->fetchAll();
 
     if(!empty($_POST)) {
-        $term = $db->prepare("UPDATE meeting SET farmType=:farmType, meetingStart=:meetingStart , meetingLocation=:meetingLocation, reason=:reason where id=:id");
-        $term->bindValue('farmType', Request::post("farmType"));
+        $term = $db->prepare("INSERT INTO meeting (farmType, meetingStart, meetingLocation, reason) VALUES
+        (:farmType, :meetingStart, :meetingLocation, :reason)");
         $term->bindValue('meetingStart', Request::post("meetingStart"));
         $term->bindValue('meetingLocation', Request::post("meetingLocation"));
         $term->bindValue('reason', Request::post("reason"));
-        $term->bindValue('id', $end[0][0]);
+        $term->bindValue('farmType', 1);
         $term->execute();
     }
+
+    $term = $db->prepare("SELECT COUNT(*) FROM meeting");
+    $term->execute();
+    $number=$term->fetchAll();
+
+    $term = $db->prepare("SELECT * FROM meeting;");
+    $term->execute();
+    $list=$term->fetchAll();
 ?>
 
 <div class="jumbotron jumbotron-sm">
