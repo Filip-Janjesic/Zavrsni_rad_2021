@@ -6,7 +6,6 @@ include_once "../config.php";
 
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-  $id=(int)
   $sql = "DELETE FROM meeting WHERE id =".$id;
   $db = exec($sql);
   echo "Record deleted successfully";
