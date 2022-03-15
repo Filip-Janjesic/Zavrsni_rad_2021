@@ -2,7 +2,7 @@
 include_once "config.php";
 
 try {
-  $db = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+  $db = new PDO("mysql:dbname=afrodita_Zavrsni_rad_2021;host=localhost;charset=utf8", $user, $pass);
   
   $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
