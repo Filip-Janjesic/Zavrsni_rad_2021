@@ -71,7 +71,7 @@
                 <td><?=$list[$i][3]?></td>
                 <td><?=$list[$i][4]?></td>
                 <td><?=$list[$i][5]?> <button class ="btn btn-primary" type="submit"><a href="main/update.php?id" class="text-light">Update</a></button></td>
-                <td><?=$list[$i][6]?> <button class ="btn btn-danger" type="submit"><a href="main/delete.php?id" class="text-light">Delete</a></button></td> 
+                <td><?=$list[$i][6]?> <button class ="btn btn-danger" type="submit"><a href="main/delete.php?<?$meeting->id?>" class="text-light">Delete</a></button></td> 
             </tr>
             <?php endfor;?>
         </tbody>
