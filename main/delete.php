@@ -5,18 +5,10 @@ error_reporting(E_ALL);
 
 include_once "../config.php";
 
-if(isset($_GET["id"])) 
-{
-    $result = mysql_query("DELETE FROM 'meeting' WHERE id=", intval($_GET['id']));
-    
-    if(!$result){
-      echo mysql_error();
-    }else{
-      echo "succces";
-    }
-}
-else { 
-  echo "ID is not valid."; 
-}
+$get_id=$_GET['id'];
 
+$sql = "DELETE FROM meeting WHERE id = '$get_id'";
+
+$conn->exec($sql);
+header('location:arrangednewmeeting.php');
 ?>
