@@ -1,14 +1,18 @@
 <?php  
 include "../config.php";
 
-if(isset($_GET["?id='.$id."])) 
+if(isset($_GET["id"])) 
 {
-
-    $result = mysql_query("DELETE FROM 'meeting' WHERE id='$id'");
-    echo mysql_error();
-    if($result)
-        echo "succces";
+    $result = mysql_query("DELETE FROM 'meeting' WHERE id=".$_GET['id']);
+    
+    if(!$result){
+      echo mysql_error();
+    }else{
+      echo "succces";
+    }
 }
-else { echo "ERROR"; }
+else { 
+  echo "ID is not valid."; 
+}
 
 ?>
