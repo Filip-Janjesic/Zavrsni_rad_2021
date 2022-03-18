@@ -9,6 +9,6 @@ if(isset($_GET["?id='.$id."]))
     if($result)
         echo "succces";
 }
-else { echo "ERROR; }
+else { echo "ERROR"; }
 
 ?>
