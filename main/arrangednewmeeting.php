@@ -44,17 +44,19 @@
             </form>
         </div>
     </div>
+
+    <div class="row justify-content-center">
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th scope="col">Order</th>
-                <th scope="col">Start date</th>
-                <th scope="col">Location</th>
-                <th scope="col">Reason</th>
-                <th scope="col">Update</th>
-                <th scope="col">Delete</th>
+                <th>Order</th>
+                <th>Start date</th>
+                <th>Location</th>
+                <th>Reason</th>
+                <th colspan="2">Action</th>
             </tr>
         </thead>
+
         <tbody>
             <?php for ($i=0; $i<$number[0][0]; $i++):?>
             <tr>
@@ -62,8 +64,8 @@
                 <td><?=$list[$i][2]?></td>
                 <td><?=$list[$i][3]?></td>
                 <td><?=$list[$i][4]?></td>
-                <td><?=$list[$i][5]?> <button class ="btn btn-primary" type="submit"><a href="main/update.php?id=<?$list[$i][2]->$id?>" class="text-light">Update</a></button></td>
-                <td><?=$list[$i][6]?> <button class ="btn btn-danger" type="submit"><a href="main/delete.php?id=<?$list[$i][2]->$id?>" class="text-light">Delete</a></button></td> 
+                <td><?=$list[$i][5]?> <button class ="btn btn-primary" type="submit"><a href="main/update.php?id <?php $list[$i][2]->$id?> " class="text-light">Update</a></button></td>
+                <td><?=$list[$i][6]?> <button class ="btn btn-danger" type="submit"><a href="main/delete.php?id <?php $list[$i][2]->$id?> " class="text-light">Delete</a></button></td> 
             </tr>
             <?php endfor;?>
         </tbody>
