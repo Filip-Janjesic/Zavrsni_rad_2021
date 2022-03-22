@@ -41,7 +41,7 @@
                                     <?=$end[0][1]." ".$end[0][2]?>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="mainmenu.php?x=7">My profile</a>
+                                    <a class="dropdown-item" href="mainmenu.php?x=7">Admin profile</a>
                                     <a class="dropdown-item" href="mainmenu.php?x=4">Settings</a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="index.php">Logout</a>
