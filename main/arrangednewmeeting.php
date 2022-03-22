@@ -64,8 +64,8 @@
                 <td><?=$list[$i][2]?></td>
                 <td><?=$list[$i][3]?></td>
                 <td><?=$list[$i][4]?></td>
-                <td><?=$list[$i][5]?> <button class ="btn btn-primary" type="submit"><a href="main/update.php?id=<?php echo $list[$i][2]->$id?> " class="text-light">Update</a></button></td>
-                <td><?=$list[$i][6]?> <button class ="btn btn-danger" type="submit"><a href="main/delete.php?id=<?php echo $list[$i][2]?> " class="text-light">Delete</a></button></td> 
+                <td><?=$list[$i][5]?> <button class ="btn btn-primary" type="submit"><a href="main/update.php?id=<?php echo $list[$i][1]?> " class="text-light">Update</a></button></td>
+                <td><?=$list[$i][6]?> <button class ="btn btn-danger" type="submit"><a href="main/delete.php?id=<?php echo $list[$i][1]?> " class="text-light">Delete</a></button></td> 
             </tr>
             <?php endfor;?>
         </tbody>
