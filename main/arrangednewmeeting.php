@@ -16,6 +16,7 @@
     $term = $db->prepare("SELECT COUNT(*) FROM meeting");
     $term->execute();
     $number=$term->fetchAll();
+
     $term = $db->prepare("SELECT * FROM meeting;");
     $term->execute();
     $list=$term->fetchAll();
@@ -49,23 +50,21 @@
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th>Order</th>
                 <th>Start date</th>
                 <th>Location</th>
                 <th>Reason</th>
-                <th colspan="2">Action</th>
+                <th colspan="2" style="text-align: center">Action</th>
             </tr>
         </thead>
 
         <tbody>
             <?php for ($i=0; $i<$number[0][0]; $i++):?>
             <tr>
-                <th scope="row"><?=$list[$i][0]?></th>
-                <td><?=$list[$i][2]?></td>
+                <td scope="row"><?=$list[$i][2]?></td>
                 <td><?=$list[$i][3]?></td>
                 <td><?=$list[$i][4]?></td>
-                <td><?=$list[$i][5]?> <button class ="btn btn-primary" type="submit"><a href="main/update.php?id=<?php echo $list[$i][0]?> " class="text-light">Update</a></button></td>
-                <td><?=$list[$i][6]?> <button class ="btn btn-danger" type="submit"><a href="main/delete.php?id=<?php echo $list[$i][0]?> " class="text-light">Delete</a></button></td> 
+                <td style="text-align:center"><?=$list[$i][6]?> <button class ="btn btn-primary" type="submit"><a href="main/update.php?id=<?php echo $list[$i][0]?> " class="text-light">Update</a></button></td>
+                <td style="text-align:center"><?=$list[$i][7]?> <button class ="btn btn-danger" type="submit"><a href="main/delete.php?id=<?php echo $list[$i][0]?> " class="text-light">Delete</a></button></td> 
             </tr>
             <?php endfor;?>
         </tbody>

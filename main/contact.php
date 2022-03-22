@@ -36,10 +36,9 @@
                             </div>
                             <div class="form-group">
                                 <label for="subject">
-                                    Farm Meeting
+                                    About
                                 </label>
                                 <select id="subject" name="subject" class="form-control" required="required">
-                                    <option value="na" selected="">Choose</option>
                                     <option value="service">Farm Type</option>
                                     <option value="suggestions">Meeting</option>
                                     <option value="product">OPG</option>
