@@ -12,9 +12,13 @@
 </div>
 <div class="container">
     <h4>Farm meeting</h4>
-    <a href="https://extension.umaine.edu/publications/4802e/">Guidelines of good farm meeting</a>
+    <a href="https://extension.umaine.edu/publications/4802e/"><b>Guidelines of good farm meeting</b></a>
+    <br>
+    <br>
     <h4>History</h4>
-    <a href="https://www.foodsystemprimer.org/food-production/history-of-agriculture/">History of agriculture</a>
+    <a href="https://www.foodsystemprimer.org/food-production/history-of-agriculture/"><b>History of agriculture</b></a>
+    <br>
+    <br>
     <h4>Participate in development</h4>
-    <a href="https://www.fao.org/3/t9550e/t9550e00.htm">Development of agriculture</a>
+    <a href="https://www.fao.org/3/t9550e/t9550e00.htm"><b>Development of agriculture</b></a>
 </div>
