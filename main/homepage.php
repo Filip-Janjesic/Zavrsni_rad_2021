@@ -25,7 +25,7 @@ $farmernumber=$term->fetchAll();
 </div>
 
 <div class="container">
-    <h3>Not sure what meeting to attend?</h3>
+    <h3>Not sure which meeting to attend?</h3>
     <p><b>Farm meeting system automatically joins farmers into a group, farmers are selected by farm type, number of workers and preferred farming.</b></p>
     <hr>
     <br>
