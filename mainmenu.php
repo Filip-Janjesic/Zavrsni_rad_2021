@@ -58,7 +58,7 @@
                         else if ($_GET['x'] == 4) { include("main/settings.php"); }
                         else if ($_GET['x'] == 5) { include("main/aboutus.php"); }
                         else if ($_GET['x'] == 6) { include("main/contact.php"); }
-                        else if ($_GET['x'] == 7) { include("main/myprofile.php"); }
+                        else if ($_GET['x'] == 7) { include("main/adminprofile.php"); }
                     ?>
                 </div>
             </div>

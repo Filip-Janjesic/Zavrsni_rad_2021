@@ -12,7 +12,7 @@ try {
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     $sql = "DELETE FROM meeting WHERE id='" . $_GET["id"] . "'";
-
+    
     $db->exec($sql);
     echo "Record deleted successfully";
     }
