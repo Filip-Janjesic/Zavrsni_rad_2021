@@ -13,7 +13,7 @@
         $term->bindValue('meetingStart', Request::post("meetingStart"));
         $term->bindValue('meetingLocation', Request::post("meetingLocation"));
         $term->bindValue('reason', Request::post("reason"));
-        $term->bindValue('id', $end[0][0]);
+        $term->bindValue('id', $_GET["id"]);
         $term->execute();
     }
 ?>
@@ -24,9 +24,9 @@
     <div class=" col-lg-4 col-sm-12">
         <h4 style="padding: 30px 50px 20px;"> Update meeting </h4>
         <form action="" method="post" name="update">
-            <input class="form-control" style="text-align: center;margin-bottom: 1cm" type="text" name="meetingStart" placeholder="<?=$end[0][1]?>" value="<?=$end[0][1]?>">
-            <input class="form-control" style="text-align: center;margin-bottom: 1cm" type="text" name="meetingLocation" placeholder="<?=$end[0][2]?>" value="<?=$end[0][2]?>">
-            <input class="form-control" style="text-align: center;margin-bottom: 1cm" type="text" name="reason" placeholder="<?=$end[0][5]?>" value="<?=$end[0][5]?>">
+                <input class="form-control mb-2" style="text-align: center;margin-bottom: 1cm" type="datetime-local" name="meetingStart" placeholder="Select a date">
+                <input class="form-control mb-2" style="text-align: center;margin-bottom: 1cm" type="text" name="meetingLocation" placeholder="Enter the location">
+                <input class="form-control mb-2" style="text-align: center;margin-bottom: 1cm" type="text" name="reason" placeholder="Enter the reason">
             <button class="btn btn-success btn-block" type="submit"><i class="fas fa-sign-in-alt"></i> Save changes </button>
         </form>
     </div>
