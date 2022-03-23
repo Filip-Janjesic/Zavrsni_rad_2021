@@ -36,7 +36,7 @@
         <form action="" method="post" name="update">
             <input class="form-control" style="text-align: center;margin-bottom: 1cm" type="text" name="opg" placeholder="<?=$end[0][1]?>" value="<?=$end[0][1]?>">
             <input class="form-control" style="text-align: center;margin-bottom: 1cm" type="text" name="email" placeholder="<?=$end[0][2]?>" value="<?=$end[0][2]?>">
-            <input class="form-control" style="text-align: center;margin-bottom: 1cm" type="text" name="contactphone" placeholder="<?=$end[0][5]?>" value="<?=$end[0][5]?>">
+            <input class="form-control" style="text-align: center;margin-bottom: 1cm" type="text" name="contactphone" placeholder="<?=$end[0][3]?>" value="<?=$end[0][3]?>">
             <button class="btn btn-success btn-block" type="submit"><i class="fas fa-sign-in-alt"></i> Save changes </button>
         </form>
     </div>

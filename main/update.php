@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <?php
 
     include_once "../head.php";
@@ -28,6 +29,17 @@
                 <input class="form-control mb-2" style="text-align: center;margin-bottom: 1cm" type="text" name="meetingLocation" placeholder="Enter the location">
                 <input class="form-control mb-2" style="text-align: center;margin-bottom: 1cm" type="text" name="reason" placeholder="Enter the reason">
             <button class="btn btn-success btn-block" type="submit"><i class="fas fa-sign-in-alt"></i> Save changes </button>
+            <br>
+            <button class ="btn btn-primary btn-block" type="button" onclick="pageRedirect()">Return after saving the changes</button>
+
+            <script>
+                    function pageRedirect() {
+                    window.location.href = "https://polaznik12.edunova.hr/mainmenu.php?x=3";
+                    }                   
+            </script> 
+
         </form>
     </div>
 </div>
+
+</html> 
