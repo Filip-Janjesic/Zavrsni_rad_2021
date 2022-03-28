@@ -15,4 +15,10 @@
         <button class="btn btn-primary btn-block" type="submit"><i class="fas fa-user-plus"></i> Register </button>
     </form>
     <br>
+    <p>
+    admin@email.com - admin
+    opg1@email.com - opg1
+    opg2@email.com - opg2
+    itd...
+    </p>
 </div>
