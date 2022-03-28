@@ -6,6 +6,7 @@ create table farmers(
 	id int not null primary key auto_increment,
 	opg varchar(50)	not null,
 	email varchar(50) not null,
+	password char(60) not null,
 	contactphone int not null
 );
 
@@ -32,20 +33,20 @@ alter table farmers_meeting add foreign key (farmers) references farmers(id);
 alter table farmers_meeting add foreign key (meeting) references meeting(id);
 alter table meeting add foreign key (farmType) references farmType(id);
 
-insert into farmers (id, opg, email, contactphone) values
-(null, 'Admin', 'admin@email.com', 091111111),
-(null, 'OPG1', 'opg1@email.com', 091111112),
-(null, 'OPG2', 'opg2@email.com', 091111113),
-(null, 'OPG3', 'opg3@email.com', 091111114),
-(null, 'OPG4', 'opg4@email.com', 091111115),
-(null, 'OPG5', 'opg5@email.com', 091111116),
-(null, 'OPG6', 'opg6@email.com', 091111117),
-(null, 'OPG7', 'opg7@email.com', 091111119),
-(null, 'OPG8', 'opg8@email.com', 091221110),
-(null, 'OPG9', 'opg9@email.com', 091331121),
-(null, 'OPG10','opg10@email.com',0918441122);
+insert into farmers (id, opg, email, password, contactphone) values
+(null, 'Admin', 'admin@email.com', '$2a$12$MhXIAhVtglukXnDUmGtyd.ZzzJ4t3.peE.JUf5w3fnKrjW8N.HOOq', 091111111),
+(null, 'OPG1', 'opg1@email.com', '$2a$12$RMLd3nJKUOYxfobrKXLSku9/E2IjMHS3CiHwJeYRK5Kzn8nYNtLj6', 091111112),
+(null, 'OPG2', 'opg2@email.com', '$2a$12$RMLd3nJKUOYxfobrKXLSku9/E2IjMHS3CiHwJeYRK5Kzn8nYNtLj6', 091111113),
+(null, 'OPG3', 'opg3@email.com', '$2a$12$8o1b/kpIc7EKZKmxc32ihuKJfWyEy1PyojOyvOdIeVa5mhJlHszom', 091111114),
+(null, 'OPG4', 'opg4@email.com', '$2a$12$Zz8mgibiVGX.1AQfF9r/K.rCllyU8lRmDBH2Pm.mCktHoIakzLzVO', 091111115),
+(null, 'OPG5', 'opg5@email.com', '$2a$12$H9lF0ln1j185DV3A0A9KzOuYiCzDidOfbEwJyZCRi6P.FAbMiqXQO', 091111116),
+(null, 'OPG6', 'opg6@email.com', '$2a$12$e71UusOshfzjUmiW/sIBHOVxsieUr4e1GKgRzOn2R58tJPzL5f9oG', 091111117),
+(null, 'OPG7', 'opg7@email.com', '$2a$12$flqfmv4ZtnO9d81Zwkg.Bez5Wx67PI2Erm5IDRbzlpn0iR4sHa2Ou', 091111119),
+(null, 'OPG8', 'opg8@email.com', '$2a$12$tFNkkQ5NKJndyZqf6s1TtOkNYxSWQSkw37bwcdV60WVl7yqqByRu.', 091221110),
+(null, 'OPG9', 'opg9@email.com', '$2a$12$1R6xulB/zq0i3ED8Wy9xveH92EoQRUmzgjnETRWnB3p2qQ7y2Ubvu', 091331121),
+(null, 'OPG10','opg10@email.com', '$2a$12$bhwaTsHjYWudu69.4hbsR.X36UwO7G93gkN96nZWDQaemmtZXkA7y', 0918441122);
 
-insert into farmType (id, name, numOfWorkers) values
+insert into farmType (id, nname, numOfWorkers) values
 (null, 'Poultry farming', 5),
 (null, 'Pig farming', 8),
 (null, 'Cattle farming', 15),
@@ -85,7 +86,4 @@ insert into farmers_meeting (meeting, farmers) values
 (5, 9),
 (5, 10),
 (5, 11);
-
-
-
 
