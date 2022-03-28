@@ -5,6 +5,7 @@
 
     $term = $db->prepare("SELECT COUNT(*) FROM farmers WHERE email=:email");
     $term->bindValue('email', Request::post("email"));
+    $term->bindValue('password', Request::post("password"));
     $term->execute();
     $end=$term->fetchAll();
 
@@ -12,6 +13,7 @@
         include_once "index.php";
     }else{
         $_SESSION["email"]=Request::post("email");
+        $_SESSION["password"]=Request::post("password");
         include_once "mainmenu.php";
     }
     
