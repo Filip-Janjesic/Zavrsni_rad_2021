@@ -16,9 +16,9 @@
     </form>
     <br>
     <p>
-    admin@email.com - admin
-    opg1@email.com - opg1
-    opg2@email.com - opg2
-    itd...
+    admin@email.com - admin <br>
+    opg1@email.com - opg1 <br>
+    opg2@email.com - opg2 <br>
+    itd... <br>
     </p>
 </div>
