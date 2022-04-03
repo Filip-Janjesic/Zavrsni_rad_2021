@@ -13,7 +13,7 @@ include_once "config.php";
         <div class="row">
             <div class="col-sm-12 col-lg-12">
                 <h1 class="h1">
-                    <small>Admin profile</small>
+                    <small>Profile</small>
                 </h1>
             </div>
         </div>

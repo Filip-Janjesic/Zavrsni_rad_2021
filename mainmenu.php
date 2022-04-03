@@ -52,11 +52,13 @@
                 <div class="container-fluid">
                 <?php
                         if (!isset($_GET['x']) || $_GET['x'] == 1) { include("main/homepage.php"); }
+                        else if ($_GET['x'] == 2) { include("main/meetingsandfarmers.php"); }
                         else if ($_GET['x'] == 3) { include("main/arrangenewmeeting.php"); }
                         else if ($_GET['x'] == 4) { include("main/settings.php"); }
                         else if ($_GET['x'] == 5) { include("main/aboutus.php"); }
                         else if ($_GET['x'] == 6) { include("main/contact.php"); }
-                        else if ($_GET['x'] == 7) { include("main/adminprofile.php"); }
+                        else if ($_GET['x'] == 7) { include("main/profile.php"); }
+                        else if ($_GET['x'] == 8) { include("main/users.php"); }
                     ?>
                 </div>
             </div>

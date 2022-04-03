@@ -34,9 +34,9 @@
     <div class=" col-lg-4 col-sm-12">
         <h4 style="padding-left: 2cm; padding-bottom: 1cm"> Change data </h4>
         <form action="" method="post" name="update">
-            <input class="form-control" style="text-align: center;margin-bottom: 1cm" type="text" name="opg" placeholder="<?=$end[0][1]?>" value="<?=$end[0][1]?>">
-            <input class="form-control" style="text-align: center;margin-bottom: 1cm" type="text" name="email" placeholder="<?=$end[0][2]?>" value="<?=$end[0][2]?>">
-            <input class="form-control" style="text-align: center;margin-bottom: 1cm" type="text" name="contactphone" placeholder="<?=$end[0][3]?>" value="<?=$end[0][3]?>">
+            <input class="form-control" style="text-align: center;margin-bottom: 1cm" type="text" name="opg" placeholder="Rename your OPG">
+            <input class="form-control" style="text-align: center;margin-bottom: 1cm" type="text" name="email" placeholder="Change your email address">
+            <input class="form-control" style="text-align: center;margin-bottom: 1cm" type="text" name="contactphone" placeholder="Change your contact phone">
             <button class="btn btn-success btn-block" type="submit"><i class="fas fa-sign-in-alt"></i> Save changes </button>
         </form>
     </div>
