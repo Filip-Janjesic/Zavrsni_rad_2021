@@ -20,10 +20,14 @@
                 <div class="sidebar-heading" > Farm meeting </div>
                 <div class="list-group list-group-flush">
                     <a href="mainmenu.php?x=1" class="list-group-item list-group-item-action bg-light">Homepage</a>
+                    <a href="mainmenu.php?x=2" class="list-group-item list-group-item-action bg-light">Groups</a>
                     <a href="mainmenu.php?x=3" class="list-group-item list-group-item-action bg-light">Arrange a new meeting</a>
                     <a href="mainmenu.php?x=4" class="list-group-item list-group-item-action bg-light">Settings</a>
                     <a href="mainmenu.php?x=5" class="list-group-item list-group-item-action bg-light">About us</a>
                     <a href="mainmenu.php?x=6" class="list-group-item list-group-item-action bg-light">Contact us</a>
+
+                    <a href="mainmenu.php?x=8" class="list-group-item list-group-item-action bg-light">Users</a>
+
                 </div>
             </div>
             
@@ -40,7 +44,7 @@
                                     <?=$end[0][1]." ".$end[0][2]?>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="mainmenu.php?x=7">Admin profile</a>
+                                    <a class="dropdown-item" href="mainmenu.php?x=7">Profile</a>
                                     <a class="dropdown-item" href="mainmenu.php?x=4">Settings</a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="index.php">Logout</a>
