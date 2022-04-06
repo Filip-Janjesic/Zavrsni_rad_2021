@@ -19,15 +19,15 @@
             <div class="bg-light border-right" id="sidebar-wrapper" style="background: #358CCE">
                 <div class="sidebar-heading" > Farm meeting </div>
                 <div class="list-group list-group-flush">
+
                     <a href="mainmenu.php?x=1" class="list-group-item list-group-item-action bg-light">Homepage</a>
                     <a href="mainmenu.php?x=2" class="list-group-item list-group-item-action bg-light">Groups</a>
                     <a href="mainmenu.php?x=3" class="list-group-item list-group-item-action bg-light">Arrange a new meeting</a>
                     <a href="mainmenu.php?x=4" class="list-group-item list-group-item-action bg-light">Settings</a>
                     <a href="mainmenu.php?x=5" class="list-group-item list-group-item-action bg-light">About us</a>
                     <a href="mainmenu.php?x=6" class="list-group-item list-group-item-action bg-light">Contact us</a>
-
                     <a href="mainmenu.php?x=8" class="list-group-item list-group-item-action bg-light">Users</a>
-
+            
                 </div>
             </div>
             
