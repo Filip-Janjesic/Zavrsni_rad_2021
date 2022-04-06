@@ -6,6 +6,7 @@
         <button class="btn btn-success btn-block" type="submit"><i class="fas fa-sign-in-alt"></i> Login </button>
         <hr>
     </form>
+    
     <form action="register.php"method="post">
         <p style="text-align:center">Create a new account</p>
         <input type="text" name="nname" id="user-name" class="form-control" placeholder="opg" required="" autofocus="">
