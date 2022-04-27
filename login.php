@@ -7,6 +7,7 @@ error_reporting(E_ALL);
 
 <?php
 // Initialize the session
+@ob_start();
 session_start();
 
  // Check if the user is already logged in, if yes then redirect him to welcome page
@@ -117,7 +118,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="form-group">
-                <label>opg</label>
+                <label>Email</label>
                 <input type="text" name="opg" class="form-control <?php echo (!empty($opg_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $opg; ?>">
                 <span class="invalid-feedback"><?php echo $opg_err; ?></span>
             </div>    
