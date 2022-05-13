@@ -3,10 +3,8 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 ?>
-
 <!doctype html>
 <html lang="en">
-
 <div id="logreg-forms">
     <form class="form-signin" action="check.php" method="post">
         <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> Welcome </h1>
