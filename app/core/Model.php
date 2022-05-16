@@ -96,5 +96,58 @@ class Model
        $result -> execute();
        return $result -> fetchALL();
    }
-   
+   public static function innerSelectLimit(array $select, string $from, array $tabels, array $where, int $limit , int $offset)
+   {
+        $innerJoin = [
+            'categories-products' => 'inner join products on products.id = categories.id',
+            'products-bought' => 'inner join bought on products.id = bought.product',
+            'products-comments' => 'inner join comments on products.id = comments.product',
+            'products-rating' => 'inner join rating on products.id = rating.product',
+            'rating-users' => 'inner join users on rating.user = users.id',
+            'comments-users'=> 'inner join users on comments.user = users.id',
+            'bought-orders'=> 'inner join orders on bought.orders = orders.id',
+            'users-orders'=> 'inner join orders on orders.user = users.id',
+            'orders-users'=> 'inner join users on users.id = orders.user',
+            'orders-bought'=> 'inner join bought on bought.orders = orders.id',
+            'bought-products' => 'inner join products on products.id = bought.product'
+        ];
+        $selectResult='';
+        $innerResult='';
+        $whereKey='';
+        $whereParm='';
+        foreach($select as $key => $value)
+   {
+    if (preg_match('~[0-9]+~', $key)) {
+        $key = substr($key, 0, -1);
+    }
+    $selectResult = $selectResult . $key.'.'. $value.',';  
+   }
+
+   foreach($tabels as $key)
+   {
+       foreach($innerJoin as $innerKey => $innerValue)
+       {
+           if($innerKey === $key){
+               $innerResult = $innerResult .' '. $innerValue.' ' ;
+           }
+       }
+   }
+
+    foreach($where as $key => $value)
+    {
+       $whereKey = $key;
+       $whereParm=$value;
+    }
+
+
+    $connection = DB::getInstance();
+    $sql = "SELECT ". rtrim($selectResult, ' ,').
+    " FROM ". $from . " " .  $innerResult . 
+    " WHERE " . $whereKey . "= ? ORDER BY id DESC
+    LIMIT ". $limit . " OFFSET ". $offset;
+    $result = $connection-> prepare($sql);
+    $result -> bindParam(1,$whereParm);
+    $result -> execute();
+    return $result -> fetchALL();
+    }
 }
