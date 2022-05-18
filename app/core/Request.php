@@ -23,6 +23,25 @@ class Request
 
     public static function isAdmin()
     {
-        if(isset($_SESSION))
+        if(isset($_SESSION));
+    }
+
+    public static function redirect($name)
+    {
+        header("Location:" . $name);
+    }
+
+    public static function issetTrim(string $string)
+    {
+        return isset($_POST[$string]) ? trim($_POST[$string]) : '';
+    }
+
+    public static function LimitString($str, $limit)
+    {
+        if (strlen($str) > $limit){
+            echo substr($str, 0, $limit-3) . '...';
+        }else{
+            echo $str;
+        }
     }
 }
