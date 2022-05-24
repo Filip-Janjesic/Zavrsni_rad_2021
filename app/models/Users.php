@@ -18,6 +18,23 @@ class Users extends Model
 
     public static function readLimit($limt, $offset)
     {
-        
+        $connection= DB::getInstance();
+        $sql =
+        '
+        select a.id,a.name, a.lastname, a.role , a.email , count(b.status) as bought
+        from 
+        users a
+        left join orders b on b.user = a.id 
+        where 
+        a.email like :likeparm
+        group by a.name
+        limit :offset,:limit       
+        ';
+        $result = $connection -> prepare($sql);
+        $result->bindValue('offset',$offset, PDO::PARAM_INT);
+        $result->bindValue('limit', $limit, PDO::PARAM_INT);
+        $result->bindValue('likeparm', '%'. $like .'%');
+        $result -> execute();
+        return $result -> fetchAll();
     }
 }
