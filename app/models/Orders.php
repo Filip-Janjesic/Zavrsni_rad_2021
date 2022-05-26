@@ -13,6 +13,37 @@ class Orders extends Model
 
     public function createOrder($parameters)
     {
-        $connection = 
+        $connection = DB::getInstance();
+        $connection ->beginTransaction();
+
+        $prepareOrders = $connection -> prepare("
+        insert into orders (status,amount,transaction_id,order_date,user)
+        VALUES (:status,:amount,:transaction_id,:order_date,:user)
+        ");
+        $prepareOrders->execute([
+            'status' => $parameters['status'],
+            'amount' => $parameters['amount'],
+            'transaction_id' => $parameters['transaction_id'],
+            'order_date' => $parameters['order_date'],
+            'user' => $parameters['user']   
+        ]);
+        $orderId= $connection->lastInsertId();
+
+        foreach ($_SESSION['Cart'] as $key) {
+            
+            $prepareBought = $connection -> prepare("
+
+                insert into bought (orders,product,price)
+                VALUES (:orders,:product,:price)
+
+            ");
+            $prepareBought->execute([
+                'orders' => $orderId,
+                'product' => $key['id'],
+                'price' => $key['price']
+            ]);
+        }
+        $connection->commit();
+        return true;
     }
 }
