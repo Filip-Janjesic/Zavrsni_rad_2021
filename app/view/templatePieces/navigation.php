@@ -10,8 +10,8 @@
       </li>
       <?php if(request::isLogin()):?>
       <li class="nav-item">
-        <a class="nav-link" href="<?= App::config('url'); ?>index/mybooks">My books</a>
-      </li>
+        <a class="nav-link" href="<?= App::config('url'); ?>index/myproducts">My products</a>
+      </li
       <?php if(!empty($_SESSION['Cart'])):?>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -30,3 +30,31 @@
       <li class="nav-item">
         <a class="nav-link" href="<?= App::config('url'); ?>index/contact">Contact</a>
       </li>
+      <?php if(Request::isAdmin()): ?>
+        <li class="nav-item">
+        <a class="nav-link" href="<?=App::config('url');?>AdminStatistics">Admin</a>
+      </li>
+      <?php endif ?>
+      <li class="nav-item">
+        <?php if(isset($_SESSION['User'])): ?>
+          <a class="nav-link" href="<?=App::config('url');?>Login/logout">Logout<?=isset($_SESSION['User'])?'('.$_SESSION['User']->name.')':''?></a>
+        <?php else: ?>
+          <a class="nav-link" href="<?=App::config('url');?>Login">Login</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="<?=App::config('url');?>Login/register">Register</a>
+        <?php endif ?>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<?= App::config('url'); ?>index/erdiagram">ER diagram</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" target="_blank"  href="https://github.com/Filip-Janjesic/Zavrsni_rad_2021">Github</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0" method="GET" action="<?= App::config('url')?>index">
+      <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search">
+      <input type="submit" class="btn btn-primary my-2 my-sm-0" value="Search">
+    </form>
+  </div>
+</nav>
