@@ -1,0 +1,86 @@
+
+<br><br>
+<div class="container">
+  <div class="row">
+      <div class="col-md-6 col-sm-12 text-center">
+        <img class="img-thumbnail" src="../../public/images/<?= $product -> image ?>">
+        <?php if(Request::isLogin()):?>
+          <?php if($checkrating === true):?>
+          <h4>Rate product</h4>
+            <a href="<?= App::config('url');?>Index/setRating/<?=$product->id;?>/1"><i class="fas fa-2x fa-star fa-xs"></i></a>
+            <a href="<?= App::config('url');?>Index/setRating/<?=$product->id;?>/2"><i class="fas fa-2x fa-star fa-sm"></i></a>
+            <a href="<?= App::config('url');?>Index/setRating/<?=$product->id;?>/3"><i class="fas fa-2x fa-star fa-lg"></i></a>
+            <a href="<?= App::config('url');?>Index/setRating/<?=$product->id;?>/4"><i class="fas fa-2x fa-star fa-2x"></i></a>
+            <a href="<?= App::config('url');?>Index/setRating/<?=$product->id;?>/5"><i class="fas fa-2x fa-star fa-3x"></i></a>
+          <?php else:?>
+            <h4>Your rate</h4>
+            <?=Util::stars($checkrating,'fa-2x')?>
+          <?php endif ?> 
+        <?php endif ?> 
+      </div>
+      <div class="col-md-6 text-center ">
+        <h2 class = "text-center"><?= $product -> title ?></h2><hr> 
+        <h4>Price</h4>
+        <?php if(isset($product->discount) && $product->discount != '%') :?>
+        <p style="color:red"><s>Price: <?= $product -> price ?>$</s></p>
+        <p> Discount: <?= $product->discount ?>%<p>
+        <p style="color:green"> Price: <?= $product->price * (1-(producthelper::floatDiscount($product->discount))) ?>$</p>
+        <?php else:?>
+        <p><?= $product -> price ?>$</p>
+        <?php endif?>
+        <h4>Rating</h4>
+        <p><?= $rating . '('. $countrating .')' ?></p>
+        <?php if(in_array($product->id,(array)$purchased)): ?>
+          <a class="btn btn-success btn-lg btn-block">Purchased </a>
+            <?php else:?>
+              <a href="<?= App::config('url');?>Cart/addProductToCart/<?= $product-> id ?>" class="btn btn-primary btn-lg btn-block">Add to cart </a>
+              <?php endif ?>
+    </div>
+  </div><br><br>
+  <h2 class="text-center">About product</h2>
+  <p class="text-center border"><?=  $product -> content?></p>
+    <br>
+  <div class="container bootstrap snippets bootdey">
+    <div class="row">
+		<div class="col-md-12">
+		    <div class="blog-comment">
+				<h2 class="text-center">Comments</h2>
+                <hr/>
+				<ul class="comments">
+        <?php foreach($comments as $key) :?>
+				<li class="clearfix">
+				  <div class="post-comments">
+				      <p class="meta"><?= $key->comment_date ?> <b><?= $key->name ?></b> says : <i class="pull-right"></i></p>
+				      <p>
+              <?= $key->comment ?>
+				      </p>
+              <?php if(in_array($key->id,$myComments)): ?>
+              <a class="btn btn-danger" href="<?= App::config('url')?>index/productpage/<?= $product-> id ?>?deleteComment=<?=$key->id ?>">Delete</a>
+              <?php endif ?>
+            </div>
+				</li>
+        <?php endforeach ?>
+        <?=Util::Pagination($pagination)?>
+        <br>
+        <?php if(request::isLogin()):?>
+        <li class="clearfix">
+            <div class="post-comments">
+                <form action="<?=App::config('url')?>Index/productpage/<?= $product->id ?>" method="POST">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="content">
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" name="submit" class="btn btn-primary" value="Submit">
+                    </div>
+                    <?php if(isset($commentError)): ?>
+                      <h5 style='color:red'><?= $commentError?></h5>
+                </form>
+                <?php endif;?>
+                <?php endif; ?>
+            </div>
+        </li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
