@@ -1,0 +1,51 @@
+<div class="container padding-bottom-3x mb-1">
+    <div class="table-responsive shopping-cart">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th class="text-center">Subtotal</th>
+                    <th class="text-center">Discount</th>
+                    <th class="text-center"><a class="btn btn-sm btn-outline-danger" href="<?= App::config('url');?>Cart/destroyCart">Clear Cart</a></th>
+                </tr>
+            </thead>
+            <tbody>
+            <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+                <?php $loop = 1;?>
+                <?php foreach ($_SESSION['Cart'] as $key):?>
+                    <td>
+                        <div class="product-item">
+                            <a class="product-thumb" href="<?= App::config('url');?>index/productpage/<?=$key['id']?>"><img src="<?= App::config('url');?>/public/images/<?=$key['image']?>" alt="Product"></a>
+                            <div class="product-info">
+                                <h4 class="product-title"><a href="<?= App::config('url');?>index/productpage/<?=$key['id']?>"><?= $key['title'] ?></a></h4><span><em>Author:</em> <?= $key['author'] ?></span>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="text-center text-lg text-medium">$<?= $key['price']?></td>
+                    <td class="text-center"><?= $key['discount'] == '%'? 0 : $key['discount'] ?></td>
+                    <td class="text-center"><a class="remove-from-cart" href="<?= App::config('url');?>Cart/removeProduct/<?=$key['id']?>" data-toggle="tooltip" title="" data-original-title="Remove item"><i class="fas fa-2x fa-trash-alt"></i></a></td>
+                </tr>
+                <input type="hidden" name="item_name_<?=$loop?>" value="<?= $key['title'] ?>">
+                <input type="hidden" name="item_number_<?=$loop?>" value="<?= $key['id']?>">
+                <input type="hidden" name="amount_<?=$loop?>" value="<?= $key['price']?>">
+                <input type="hidden" name="quantity_<?=$loop?>" value="1">
+                <?php $loop++ ?>
+                <?php endforeach ?>
+            </tbody>
+        </table>
+    </div>
+    <div class="shopping-cart-footer">
+        <div class="column text-lg">Total: <span class="text-medium"><?= producthelper::totalprice(); ?></span></div>
+    </div> 
+    <div class="shopping-cart-footer">
+        <div class="column"><a class="btn btn-outline-secondary" href="<?= App::config('url'); ?>"><i class="icon-arrow-left"></i>&nbsp;Back to Shopping</a></div>
+        <input type="hidden" name="cmd" value="_cart">
+        <input type="hidden" name="business" value="filip.janjesic@gmail.com">
+        <input type="hidden" name="currency_code" value="USD">
+        <input type="hidden" name="upload" value="1">
+        <div class="column"><input type="image" name="upload"
+        src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif"
+        alt="PayPal - The safer, easier way to pay online"></div>
+    </div>
+    </form>
+</div>
