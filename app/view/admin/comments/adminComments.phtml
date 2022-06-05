@@ -1,0 +1,57 @@
+<?php 
+include APP_PATH . 'view' . DIRECTORY_SEPARATOR . 'admin'. DIRECTORY_SEPARATOR .'adminTemplate.phtml';
+?>
+<div class="col-md-9">   
+<br>
+        <table class="table">
+            <thead>
+                <tr>
+                <th scope="col">User</th>
+                <th scope="col">Product</th>
+                <th scope="col">Comment</th>
+                <th scope="col">Date</th>  
+                <th scope="col">Status</th>     
+                <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php if(isset($commentsInner)): ?>
+                <?php foreach($commentsInner as $key): ?>
+                <tr>
+                <td><?= $key-> name ?></td>
+                <td><a href="<?= App::config('url')?>index/productpage/<?=$key->product ?>"><?= $key -> title ?></a></td>
+                <td><?= Request::LimitString($key-> comment, 10) ?></td>
+                <td><?= $key-> comment_date ?></td>
+                <?php if($key -> approved == 2): ?>
+                <td><a href="<?= App::config('url');?>AdminComments/status/<?= $key->id ?>"><i title="Approve" style="color:green" class="fas fa-3x fa-check-square"></i></a></td>
+                <?php else: ?>
+                <td><a href="<?= App::config('url');?>AdminComments/status/<?= $key->id ?>"><i title="Disapprove" style="color:red" class="fas fa-3x fa-times"></i></a></td>
+                <?php endif?>
+                <td onclick="return confirm('Do you want to delete the comment')"><a style="color:red" href="<?= App::config('url');?>AdminComments/deleteComments/<?= $key->id ?>"><i title="detele" class="fas fa-2x fa-trash-alt"></i></a></td>
+                </tr>
+                <?php endforeach; ?>
+                <?php endif; ?>
+            </tbody>
+        </table>
+        <?= Util::Pagination($pagination) ?>
+    
+        <hr>
+        <form action="<?= App::config('url'); ?>AdminComments<?=$searchFormLink?>" method="GET">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm">
+                        <input type="text" name="search" class="form-control" placeholder="Search comments by products">
+                    <br>
+                    <?php if(isset($error)): ?>
+                        <h5 style = "color:red"><?= $error ?></h5>
+                    <?php endif ?>
+                    </div>
+                    <div class="col-sm">
+                        <input type="submit" class="btn btn-primary" value="Search">  
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    </div>
+</div>
