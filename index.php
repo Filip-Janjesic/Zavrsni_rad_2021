@@ -17,12 +17,9 @@ $path= implode(PATH_SEPARATOR,
     APP_PATH . 'core',
     APP_PATH . 'helpers'
 ]);
-
 set_include_path($path);
 
-
 spl_autoload_register(function($class){
-
     $path = explode(PATH_SEPARATOR, get_include_path());
     foreach ($path as $key) {
         if(file_exists($key. DIRECTORY_SEPARATOR. $class . '.php')){
@@ -30,7 +27,5 @@ spl_autoload_register(function($class){
             break;
         }
     }
-
 });
-
 App::start();
