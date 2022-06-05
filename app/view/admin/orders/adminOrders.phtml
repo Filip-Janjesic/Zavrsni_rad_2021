@@ -1,0 +1,36 @@
+<?php 
+include APP_PATH . 'view' . DIRECTORY_SEPARATOR . 'admin'. DIRECTORY_SEPARATOR .'adminTemplate.phtml';
+?>
+<div class="col-md-9">   
+<br>
+        <table class="table">
+            <thead>
+                <tr>
+                <th scope="col">Buyer</th>
+                <th scope="col">Status</th>
+                <th scope="col">Transaction_id</th>  
+                <th scope="col">Price</th>
+                <th scope="col">Date</th>   
+                <th scope="col">Details</th>  
+                </tr>
+            </thead>
+            <tbody>
+                <?php if(isset($ordersInner)): ?>
+                <?php foreach($ordersInner as $key): ?>
+                <tr>
+                <td><?= $key-> name ?></td>
+                <td><?= $key -> status ?></td>
+                <td><?= $key-> transaction_id ?></td>
+                <td>$<?= $key-> amount ?></td>
+                <td><?= $key-> order_date ?></td>
+                <td><a class="btn btn-primary" href="<?= App::config('url')?>AdminOrders/details/<?=$key->id ?>">Details</a></td>
+                </tr>
+                <?php endforeach; ?>
+                <?php endif; ?>
+            </tbody>
+        </table>
+        <?=Util::Pagination($pagination)?>
+        <hr>
+    </div>
+    </div>
+</div>
