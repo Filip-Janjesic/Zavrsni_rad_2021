@@ -1,0 +1,88 @@
+<?php 
+include APP_PATH . 'view' . DIRECTORY_SEPARATOR . 'admin'. DIRECTORY_SEPARATOR .'adminTemplate.phtml';
+?>
+<div class="col-md-9">   
+<a class="btn btn-primary btn-lg btn-block" href="<?php App::config('url');?>AdminProducts/createProducts ">Create new product</a>
+<br>
+<form class="float-right" action="<?= App::config('url');?>AdminProducts" method="post">
+    <div class="container ">
+        <div class="row">
+            <div class="form-group mx-sm-3 mb-2">
+                <input type="text" name="setDiscount" class="form-control" placeholder="Set discount for all products">
+            </div>
+            <div class="col-sm">
+                <input type="submit" class="btn btn-primary" value="Apply"> 
+                <a onclick="return confirm('Do you want to remove all discounts')" class="btn btn-danger" href="<?= App::config('url');?>AdminProducts/removeDiscount">Remove discount</a> 
+            </div>
+            <br><br><br>
+        </div>
+        <?php if(isset($errorDiscount)): ?>
+                <h4 style = "color:red"><?= $errorDiscount;?></h4>
+        <?php endif ?> 
+    </div>
+</form>
+        <table class="table">
+            <thead>
+                <tr>
+                <th scope="col">Name of product</th>
+                <th scope="col">Manufacturer</th>
+                <th scope="col">Image</th>
+                <th scope="col">Price</th>  
+                <th scope="col">Discount</th>  
+                <th scope="col">Category</th>
+                <th scope="col">Content</th>
+                <th scope="col">Update</th>
+                <th scope="col">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php if(isset($products)): ?>
+                <?php foreach ($products as $key): ?>
+                <tr>
+                <td><a href="<?= App::config('url');?>index/productpage/<?=$key->id?>"><?= $key-> title ?></td></a>
+                <td><?= $key-> manufacturer ?></td>
+                <td><img style ="max-width:80px" src="public/images/<?=$key->image ?>"></td>
+                <td><?= $key-> price ?></td>
+                <?php if($key-> discount != '%'):?>
+                <td><?= $key-> discount ?>%</td>
+                <?php else:?>
+                <td><?= $key-> discount ?></td>
+                <?php endif; ?>
+                <td><?= $key-> category ?></td>
+                <td>
+                    <?php 
+                    Request::LimitString($key->content, 10);
+                    ?>
+                </td>
+                <td><a href="<?= App::config('url');?>AdminProducts/updateProducts/<?= $key->id ?>"><i title="update" class="fas fa-2x fa-pencil-alt"></i></a></td>
+                <?php if($key -> visible == 'visible'): ?>
+                <td><a class="btn btn-success" href="<?= App::config('url');?>AdminProducts/visibleProducts/<?= $key->id ?>">Visible</a></td>
+                <?php else: ?>
+                <td><a class="btn btn-danger" href="<?= App::config('url');?>AdminProducts/visibleProducts/<?= $key->id ?>">Unvisible</a></td>
+                <?php endif;?>  
+                </tr>
+                <?php endforeach; ?>
+                <?php endif; ?>
+            </tbody>
+        </table>
+        <?=Util::Pagination($pagination)?>
+        <hr>
+        <form action="<?= App::config('url'); ?>AdminProducts" method="post">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm">
+                        <input type="text" name="title" class="form-control" placeholder="Search products by title">
+                    <br>
+                    <?php if(isset($error)): ?>
+                        <h5 style = "color:red"><?= $error ?></h5>
+                    <?php endif ?>
+                    </div>
+                    <div class="col-sm">
+                        <input type="submit" name="submit" class="btn btn-primary" value="Search">  
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    </div>
+</div>
