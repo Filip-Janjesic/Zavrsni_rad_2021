@@ -1,0 +1,91 @@
+<?php 
+include APP_PATH . 'view' . DIRECTORY_SEPARATOR . 'admin'. DIRECTORY_SEPARATOR .'adminTemplate.phtml';
+?>
+<div class="col-md-9"> 
+<a class="btn btn-danger" href="<?= App::config('url');?>AdminProducts">Back</a>
+<br><br>
+        <form action="<?= App::config('url'); ?>AdminProducts/updateProducts/<?= $returnField['id'] ?>" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <h4>Update product</h4>
+                <hr>
+                <div class="mb-3">
+                    <div class="row">
+                        <div class="col">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" name="title" class="form-control" id="title" value = "<?= $returnField['title'] ?>">
+                        <?php if(isset($errors['title'])): ?>
+                            <h4 style = "color:red"><?= $errors['title'];?></h4>
+                         <?php endif ?> 
+                        </div>
+                        <div class="col">
+                        <label for="manufacturer"  class="form-label">Manufacturer</label>
+                        <input type="text" name="manufacturer" class="form-control" id="manufacturer" value = "<?= $returnField['manufacturer'] ?>">
+                        <?php if(isset($errors['manufacturer'])): ?>
+                            <h4 style = "color:red"><?= $errors['manufacturer'];?></h4>
+                         <?php endif ?> 
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                <label for="image" class="form-label">Image</label><br>
+                    <input type="file" name="image" id="image">
+                    <?php if(isset($errors['image'])): ?>
+                            <h4 style = "color:red"><?= $errors['image'];?></h4>
+                         <?php endif ?> 
+                </div>
+                <div class="mb-3">
+                    <img style ="max-width:200px" src="../../public/images/<?= $returnField['image'] ?>">
+                </div>
+                <div class="mb-3">
+                    <label for="price" class="form-label">Price</label>
+                    <input type="text" name="price" class="form-control" id="price" value = "<?= $returnField['price'] ?>">
+                    <?php if(isset($errors['price'])): ?>
+                        <h4 style = "color:red"><?= $errors['price'];?></h4>
+                    <?php endif ?> 
+                </div>
+                <div class="mb-3">
+                    <label for="discount" class="form-label">Discount %  (type % to set discount 0)</label>
+                    <input type="text" name="discount" class="form-control" id="discount" value = "<?= $returnField['discount'] ?>">
+                    <?php if(isset($errors['discount'])): ?>
+                        <h4 style = "color:red"><?= $errors['discount'];?></h4>
+                    <?php endif ?> 
+                </div>
+                <div class="mb-3">
+                    <label for="category" class="form-label">Category - </label>
+                    <select class="form-select" name="category">                    
+                        <?php foreach($categories as $key):?>
+                            <?php if($key->id == $returnField['category']):?>
+                                <option selected value="<?= $key->id ?>"><?= $key-> name?></option>
+                            <?php else: ?>
+                                <option value="<?= $key->id ?>"><?= $key-> name?></option>
+                            <?php endif ?>
+                        <?php endforeach ?>
+                    </select>
+                    <?php if(isset($errors['category'])): ?>
+                            <h4 style = "color:red"><?= $errors['category'];?></h4>
+                    <?php endif ?>  
+                </div>
+                <div class="mb-3">
+                    <label for="pdf" class="form-label">Pdf</label><br>
+                    <input type="file" name="pdf" id="pdf" value = "">
+                    <br>
+                    <p>Current pdf - /<?= $returnField['pdf'] ?>/</p>
+                    <?php if(isset($errors['pdf'])): ?>
+                            <h4 style = "color:red"><?= $errors['pdf'];?></h4>
+                    <?php endif ?> 
+                </div>
+                <div class="mb-3">
+                    <label for="w3review">Content:</label>
+                    <br>
+                    <textarea class="form-control" id="content" name="content" rows="4" cols="50"><?= $returnField['content'] ?></textarea>
+                    <?php if(isset($errors['content'])): ?>
+                            <h4 style = "color:red"><?= $errors['content'];?></h4>
+                    <?php endif ?> 
+                </div>
+                <input type="submit" name="submit" class="btn btn-primary" value="Update">
+                <br><br>
+            </div>
+        </form>
+    </div>
+    </div>
+</div>
