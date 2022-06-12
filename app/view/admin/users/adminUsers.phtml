@@ -1,0 +1,62 @@
+<?php 
+include APP_PATH . 'view' . DIRECTORY_SEPARATOR . 'admin'. DIRECTORY_SEPARATOR .'adminTemplate.phtml';
+?>
+<div class="col-md-9">   
+<a class="btn btn-primary btn-lg btn-block" href="<?php App::config('url'); ?>AdminUsers/createUsers ">Create new user</a>
+<br>
+        <table class="table">
+            <thead>
+                <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Lastname</th>
+                <th scope="col">Role</th>
+                <th scope="col">Email</th>
+                <th scope="col">Set user</th>  
+                <th scope="col">Set admin</th>
+                <th scope="col">Update</th>  
+                <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php if(isset($users)): ?>
+                <?php foreach ($users as $key): ?>
+                <tr>
+                <td><?php echo $key-> name ?></td>
+                <td><?php echo $key-> lastname ?></td>
+                <td><?php echo $key-> role ?></td>
+                <td><?php echo $key-> email ?></td>
+                <td><a style="color:red" href="<?= App::config('url');?>AdminUsers/setUser/<?= $key->id ?>"><i title="set user" class="fas fa-2x fa-user-lock"></i></a></td>
+                <td><a style="color:green" href="<?= App::config('url');?>AdminUsers/setAdmin/<?= $key->id ?>"><i title="Set admin" class="fas fa-2x fa-user-edit"></i></a></td>
+                <td><a href="<?= App::config('url');?>AdminUsers/updateUsers/<?= $key->id ?>"><i title="update" class="fas fa-2x fa-pencil-alt"></i></a></td>
+                <?php if($key -> bought != 0 ):?>
+                <td><i style="color:grey" title="This users has products" class="fas fa-2x fa-trash-alt"></i></td>
+                <?php else:?>
+                    <td onclick="return confirm('Do you want to delete the user')"><a style="color:red" href="<?= App::config('url');?>AdminUsers/deleteUsers/<?= $key->id ?>"><i title="detele" class="fas fa-2x fa-trash-alt"></i></a></td>
+                <?php endif?>
+                
+                </tr>
+                <?php endforeach; ?>
+                <?php endif; ?>
+            </tbody>
+        </table>
+        <?=Util::Pagination($pagination)?>
+        <hr>
+        <form action="<?= App::config('url'); ?>AdminUsers" method="post">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm">
+                        <input type="text" name="email" class="form-control" placeholder="Search users by email">
+                    <br>
+                    <?php if(isset($error)): ?>
+                        <h5 style = "color:red"><?= $error ?></h5>
+                    <?php endif ?>
+                    </div>
+                    <div class="col-sm">
+                        <input type="submit" name="submit" class="btn btn-primary" value="Search">  
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    </div>
+</div>
