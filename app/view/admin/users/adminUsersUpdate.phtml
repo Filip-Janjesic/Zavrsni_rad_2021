@@ -1,0 +1,64 @@
+<?php 
+include APP_PATH . 'view' . DIRECTORY_SEPARATOR . 'admin'. DIRECTORY_SEPARATOR .'adminTemplate.phtml';
+?>
+<div class="col-md-9"> 
+<a class="btn btn-danger" href="<?= App::config('url');?>AdminUsers">Back</a>
+<br><br>
+        <form action="<?= App::config('url'); ?>AdminUsers/updateUsers/<?= $returnField['id'] ?> " method="post">
+            <div class="form-group">
+                <h4>Update user</h4>
+                <hr>
+                <div class="mb-3">
+                    <div class="row">
+                        <div class="col">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" name="name" class="form-control" id="name" value = "<?= $returnField['name'] ?>">
+                        </div>
+                        <?php if(isset($errors['name'])):?>
+                        <h5 style="color:red"><?= $errors['name']?></h5>
+                        <?php endif?>
+                        <div class="col">
+                        <label for="lastname"  class="form-label">Lastname</label>
+                        <input type="text" name="lastname" class="form-control" id="lastname" value = "<?= $returnField['lastname'] ?>">
+                        <?php if(isset($errors['lastname'])):?>
+                        <h5 style="color:red"><?= $errors['lastname']?></h5>
+                        <?php endif?>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="role" class="form-label">Role</label><br>
+                    <div class="form-check">
+                        <input <?php if($returnField['role'] == 'admin'){ echo "checked"; }?> class="form-check-input" type="radio" name="role" id="role" value="admin">
+                        <label class="form-check-label" for="role">Admin</label>
+                    </div>
+                    <div class="form-check">
+                        <input <?php if($returnField['role'] == 'user'){ echo "checked"; }?> class="form-check-input" type="radio" name="role" id="role2" value="user">
+                        <label class="form-check-label" for="role2">User</label>
+                    </div>
+                    <?php if(isset($errors['role'])):?>
+                    <h5 style="color:red"><?= $errors['role']?></h5>
+                    <?php endif?>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" name="email" class="form-control" id="email" value = "<?= $returnField['email'] ?>">
+                    <?php if(isset($errors['email'])):?>
+                    <h5 style="color:red"><?= $errors['email']?></h5>
+                    <?php endif?>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" name="password" class="form-control" id="password" value = "<?= $returnField['password'] ?>">
+                    <?php if(isset($errors['password'])):?>
+                    <h5 style="color:red"><?= $errors['password']?></h5>
+                    <?php endif?>
+                </div>
+                <input type="submit" name="submit" class="btn btn-primary" value="Update">
+                <br><br>
+            </div>
+        </form>
+    </div>
+    </div>
+</div>
