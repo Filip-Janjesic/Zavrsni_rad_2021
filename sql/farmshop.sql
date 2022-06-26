@@ -22,7 +22,7 @@ create table users (
 create table products (
 
 	id int primary key auto_increment not null,
-	title varchar(50) not null,
+	brand_name varchar(50) not null,
 	manufacturer varchar(50) not null,
 	image varchar(255) not null,
 	price decimal(18.2) not null,
