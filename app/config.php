@@ -13,7 +13,7 @@ return [
     'database' => [
         'server' => 'localhost',
         'name' => 'farmshop',
-        'user' => 'filip',
+        'user' => 'Filip-J',
         'password' => 'filipj'
     ]
 ];
