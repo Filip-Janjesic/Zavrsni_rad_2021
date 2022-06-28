@@ -32,7 +32,7 @@ class CartController extends AuthorizationController
             $_SESSION['Cart'][$product-> id] = [
                 'id' => $product-> id,
                 'image' => $product-> image,
-                'title' => $product-> title,
+                'brand_name' => $product-> brand_name,
                 'manufacturer' => $product-> manufacturer,
                 'discount' => $product-> discount,
                 'price' => $product->price * (1-producthelper::floatDiscount($product->discount))
@@ -72,7 +72,7 @@ class CartController extends AuthorizationController
             $orderClass = New Orders;
             $orderInner =  $orderClass -> innerSelectLimit([
                 'orders1' => 'id',
-                'products1' => 'title',
+                'products1' => 'brand_name',
                 'products2' => 'manufacturer',
                 'products3' => 'image',
                 'bought' => 'price',

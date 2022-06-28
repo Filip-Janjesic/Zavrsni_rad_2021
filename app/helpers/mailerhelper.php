@@ -10,7 +10,7 @@ require_once 'phpmailer/SMTP.php';
 
 class mailerhelper
 {
-    public static function sendMail($email, $title, $subject, $msg,$altBody ='')
+    public static function sendMail($email, $brand_name, $subject, $msg,$altBody ='')
     {
         $mail = new PHPMailer(true);
 
@@ -26,9 +26,9 @@ class mailerhelper
         $mail->Password ='';  // YOUR gmail password
 
         // Sender and recipient settings
-        $mail->setFrom($email, $title);
-        $mail->addAddress($email, $title);
-        $mail->addReplyTo($email, $title); // to set the reply to
+        $mail->setFrom($email, $brand_name);
+        $mail->addAddress($email, $brand_name);
+        $mail->addReplyTo($email, $brand_name); // to set the reply to
 
         // Setting the email content
         $mail->IsHTML(true);

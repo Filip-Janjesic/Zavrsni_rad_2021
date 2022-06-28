@@ -19,7 +19,7 @@ include APP_PATH . 'view' . DIRECTORY_SEPARATOR . 'admin'. DIRECTORY_SEPARATOR .
                 <?php foreach($commentsInner as $key): ?>
                 <tr>
                 <td><?= $key-> name ?></td>
-                <td><a href="<?= App::config('url')?>index/productpage/<?=$key->product ?>"><?= $key -> title ?></a></td>
+                <td><a href="<?= App::config('url')?>index/productpage/<?=$key->product ?>"><?= $key -> brand_name ?></a></td>
                 <td><?= Request::LimitString($key-> comment, 10) ?></td>
                 <td><?= $key-> comment_date ?></td>
                 <?php if($key -> approved == 2): ?>

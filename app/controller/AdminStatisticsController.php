@@ -19,11 +19,11 @@ class AdminStatisticsController extends AuthorizationController
             $productsCount= Bought::selectAllPrices();
             $productNames = '';
             foreach ($productsCount as $key) {
-                    if(!empty($productsPrice[$key->title])){
-                        $productsPrice[$key->title] = $key->price + $productsPrice[$key->title];
+                    if(!empty($productsPrice[$key->brand_name])){
+                        $productsPrice[$key->brand_name] = $key->price + $productsPrice[$key->brand_name];
                     }else{
-                        $productsPrice[$key->title] = $key->price;
-                        $productNames = $productNames. $key -> title. ',';
+                        $productsPrice[$key->brand_name] = $key->price;
+                        $productNames = $productNames. $key -> brand_name. ',';
                     }
                     
             }

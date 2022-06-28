@@ -99,3 +99,4 @@ alter table comments add foreign key (user) references users(id) ON DELETE CASCA
 
 alter table rating add foreign key (product) references products(id);
 alter table rating add foreign key (user) references users(id) ON DELETE CASCADE;
+

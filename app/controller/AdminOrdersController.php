@@ -83,7 +83,7 @@ class AdminOrdersController extends AuthorizationController
         $orderClass = New Orders;
         $orderInner =  $orderClass -> innerSelectLimit([
             'orders1' => 'id',
-            'products1' => 'title',
+            'products1' => 'brand_name',
             'products2' => 'manufacturer',
             'products3' => 'image',
             'bought' => 'price',

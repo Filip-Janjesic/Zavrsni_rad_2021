@@ -43,7 +43,7 @@ class AdminCommentsController extends AuthorizationController
         $commentsNumber =  count($commentsClass->select('approved'));
 
         if(isset($_GET['search'])){
-            $whereKey ='products.title';
+            $whereKey ='products.brand_name';
             $whereParm=$_GET['search'];
             $pathForPager = 'AdminComments?search='. $_GET['search'] .'&page=';
             $commentsClass -> where = $whereParm;
@@ -53,14 +53,14 @@ class AdminCommentsController extends AuthorizationController
                 ],
                 'products',
                 ['products-comments'],
-                ['products.title' => $whereParm
+                ['products.brand_name' => $whereParm
                 ],9999,0
             ));
         }        
 
         $commentsInner =  $commentsClass -> innerSelectLimit([
             'comments1' => 'id',
-            'products' => 'title',
+            'products' => 'brand_name',
             'comments2' => 'product',
             'users' => 'name',
             'comments3' => 'comment',

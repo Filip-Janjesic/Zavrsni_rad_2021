@@ -46,8 +46,8 @@ class IndexController extends Controller
             $pathForPager = 'index/index/'.$parameters[0].'?page=';
         }elseif(!empty($_GET['search'])){
             $bigTitle = 'Search result - ' . $_GET['search'];
-            $ProductsNumber = count($ProductsClass -> selectAllLike('%'.trim($_GET['search']).'%','title'));
-            $Products = $ProductsClass-> selectAllLikeLimit('%'.trim($_GET['search']).'%','title',$limit,$offset);
+            $ProductsNumber = count($ProductsClass -> selectAllLike('%'.trim($_GET['search']).'%','brand_name'));
+            $Products = $ProductsClass-> selectAllLikeLimit('%'.trim($_GET['search']).'%','brand_name',$limit,$offset);
             $pathForPager = 'index?search='.$_GET['search'].'&page=';
             if(count($Products) == 0){
                 $bigTitle = 'No result';
@@ -207,7 +207,7 @@ class IndexController extends Controller
                     'orders' => 'id',
                     'products' => 'pdf',
                     'products1' => 'image',
-                    'products2' => 'title',
+                    'products2' => 'brand_name',
                     'products3' => 'author'
                 ],
                 'orders',

@@ -37,11 +37,11 @@ class AdminProductsController extends AuthorizationController
         }
 
         $productsClass = New Products;
-        if(isset($_POST['submit']) && !empty($_POST['title']))
+        if(isset($_POST['submit']) && !empty($_POST['brand_name']))
         {
-            $ProductsNumber = count($productsClass -> selectAllLike("%".trim($_POST['title'])."%",'title'));
-            $products= $productsClass -> selectAllLikeLimit("%".trim($_POST['title'])."%",'title',$limit,$offset);
-            $pathForPager = 'AdminProducts/search='. $_POST['title'] .'?page=';
+            $ProductsNumber = count($productsClass -> selectAllLike("%".trim($_POST['brand_name'])."%",'brand_name'));
+            $products= $productsClass -> selectAllLikeLimit("%".trim($_POST['brand_name'])."%",'brand_name',$limit,$offset);
+            $pathForPager = 'AdminProducts/search='. $_POST['brand_name'] .'?page=';
         }else
         {
             $ProductsNumber = count($productsClass -> selectAll());
@@ -66,7 +66,7 @@ class AdminProductsController extends AuthorizationController
         $categories= $categories -> selectAll();
         $SuccessMsg='';
         $errors= [
-            'title' => '',
+            'brand_name' => '',
             'manufacturer' => '', 
             'image' => '',
             'price' => '',
@@ -74,7 +74,7 @@ class AdminProductsController extends AuthorizationController
             'content' => '', 
             'pdf' => ''
         ];
-        $title = Request::issetTrim('title');
+        $brand_name = Request::issetTrim('brand_name');
         $manufacturer = Request::issetTrim('manufacturer');
         $image = isset($_FILES['image']) ? $_FILES['image'] : '';
         $price = Request::issetTrim('price');
@@ -97,7 +97,7 @@ class AdminProductsController extends AuthorizationController
 
         if(isset($_POST['submit'])){
             
-            $errors['title'] = producthelper::basicError($title);
+            $errors['brand_name'] = producthelper::basicError($brand_name);
             $errors['manufacturer'] = producthelper::basicError($manufacturer);
             $errors['image'] = producthelper::photoError($image);
             $errors['price'] = producthelper::priceError($price);
@@ -108,9 +108,9 @@ class AdminProductsController extends AuthorizationController
            
             //Create product
     
-            if(empty($errors['title']) && empty($errors['manufacturer']) && empty($errors['image']) && empty($errors['price'])&& empty($errors['category'])&& empty($errors['content'])&& empty($errors['pdf']) && empty($errors['discount'])){
+            if(empty($errors['brand_name']) && empty($errors['manufacturer']) && empty($errors['image']) && empty($errors['price'])&& empty($errors['category'])&& empty($errors['content'])&& empty($errors['pdf']) && empty($errors['discount'])){
                 $ProductsClass = new Products;
-                $ProductsClass -> title = $title;
+                $ProductsClass -> brand_name = $brand_name;
                 $ProductsClass -> manufacturer = $manufacturer;
                 $ProductsClass -> image = $imageName;
                 $ProductsClass -> price = $price;
@@ -130,7 +130,7 @@ class AdminProductsController extends AuthorizationController
             'errors' => $errors,
             'succesMsg' => $SuccessMsg,
             'returnField' => [
-                'title' => $title,
+                'brand_name' => $brand_name,
                 'manufacturer' => $manufacturer, 
                 'image' => $imageName,
                 'price' => $price,
@@ -147,7 +147,7 @@ class AdminProductsController extends AuthorizationController
         $categories= new Categories;
         $categories= $categories -> selectAll();
         $errors= [
-            'title' => '',
+            'brand_name' => '',
             'manufacturer' => '', 
             'image' => '',
             'price' => '',
@@ -169,7 +169,7 @@ class AdminProductsController extends AuthorizationController
 
         if(isset($_POST['submit'])){
 
-        $errors['title'] = producthelper::basicError(Request::issetTrim('title'));
+        $errors['brand_name'] = producthelper::basicError(Request::issetTrim('brand_name'));
         $errors['manufacturer'] = producthelper::basicError(Request::issetTrim('manufacturer'));
         $errors['image'] = producthelper::photoError($image);
         $errors['price'] = producthelper::priceError(Request::issetTrim('price'));
@@ -184,7 +184,7 @@ class AdminProductsController extends AuthorizationController
             unset($errors['pdf']);
         }
 
-        if(empty($errors['title']) && empty($errors['manufacturer']) && empty($errors['image']) && empty($errors['price'])&& empty($errors['category'])&& empty($errors['content'])&& empty($errors['pdf']) && empty($errors['discount'])){
+        if(empty($errors['brand_name']) && empty($errors['manufacturer']) && empty($errors['image']) && empty($errors['price'])&& empty($errors['category'])&& empty($errors['content'])&& empty($errors['pdf']) && empty($errors['discount'])){
         
             if(!empty($image['name'])){
                 $imageName = str_replace(' ', '', uniqid().basename($image['name']));
@@ -202,7 +202,7 @@ class AdminProductsController extends AuthorizationController
                 $pdfName =$Fields-> pdf;
             }
 
-            $ProductsClass -> title = Request::issetTrim('title');
+            $ProductsClass -> brand_name = Request::issetTrim('brand_name');
             $ProductsClass -> manufacturer = Request::issetTrim('manufacturer');
             $ProductsClass -> image =  $imageName;
             $ProductsClass -> price = Request::issetTrim('price');
@@ -220,7 +220,7 @@ class AdminProductsController extends AuthorizationController
             'errors' => $errors,
             'returnField' => [
               'id' => $parameters[0],
-              'title' => $Fields -> title,
+              'brand_name' => $Fields -> brand_name,
               'manufacturer' => $Fields -> manufacturer, 
               'image' => $Fields ->image,
               'price' => $Fields ->price,

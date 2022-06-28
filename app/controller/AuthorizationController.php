@@ -21,3 +21,4 @@ class AuthorizationController extends Controller
         }
     }
 }
+

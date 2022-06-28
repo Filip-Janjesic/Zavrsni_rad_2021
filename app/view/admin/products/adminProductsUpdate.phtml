@@ -11,7 +11,7 @@ include APP_PATH . 'view' . DIRECTORY_SEPARATOR . 'admin'. DIRECTORY_SEPARATOR .
                 <div class="mb-3">
                     <div class="row">
                         <div class="col">
-                        <label for="title" class="form-label">Title</label>
+                        <label for="title" class="form-label">Brand name</label>
                         <input type="text" name="title" class="form-control" id="title" value = "<?= $returnField['title'] ?>">
                         <?php if(isset($errors['title'])): ?>
                             <h4 style = "color:red"><?= $errors['title'];?></h4>

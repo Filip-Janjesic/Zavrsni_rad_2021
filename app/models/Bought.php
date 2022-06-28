@@ -14,7 +14,7 @@ class Bought extends Model
         $sql = 
         '
             select 
-            b.price,a.title
+            b.price,a.brand_name
             from bought b 
             left join products a on b.product = a.id;
         ';

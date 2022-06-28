@@ -77,7 +77,7 @@ class Util
                         <div class="product-item">
                             <a class="product-thumb" href="#"><img src="<?= App::config('url');?>/public/images/<?=$key->image?>" alt="Product"></a>
                             <div class="product-info">
-                                <h4 class="product-title"><a href="<?= App::config('url');?>index/productpage/<?=$key->id ?>"><?= $key->title?></a></h4><span><em>Manufacturer:</em> <?= $key->manufacturer ?></span>
+                                <h4 class="product-title"><a href="<?= App::config('url');?>index/productpage/<?=$key->id ?>"><?= $key->brand_name?></a></h4><span><em>Manufacturer:</em> <?= $key->manufacturer ?></span>
                             </div>
                         </div>
                     </td>
