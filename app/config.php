@@ -14,6 +14,6 @@ return [
         'server' => 'localhost',
         'name' => 'farmshop',
         'user' => 'Filip-J',
-        'password' => 'filipj'
+        'password' => 't84durft1994@'
     ]
 ];
