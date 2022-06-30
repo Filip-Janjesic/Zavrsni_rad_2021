@@ -12,7 +12,7 @@ return [
     'url' => 'http://Zavrsni_rad_2021.xyz/',
     'database' => [
         'server' => 'localhost',
-        'name' => 'farmshop',
+        'name' => 'Zavrsni_rad_2021',
         'user' => 'Filip-J',
         'password' => 't84durft1994@'
     ]
